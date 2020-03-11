@@ -58,7 +58,7 @@ def move():
     TODO: Using the data from the endpoint request object, your
             snake AI must choose a direction to move in.
     """
-    print(json.dumps(data.you.body))
+    print(json.dumps(data["you"]["body"]))
 
     directions = ['up', 'down', 'left', 'right']
     direction = random.choice(directions)
