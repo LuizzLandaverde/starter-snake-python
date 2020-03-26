@@ -60,12 +60,17 @@ def move():
     """
     print(json.dumps(data["you"]["body"]))
     head = (data["you"]["body"][0])
-    print(json.dumps(head))
-    directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
-
-    return move_response(direction)
-
+    food = (data["board"]["food"][0])
+    print("head" + json.dumps(head))
+    print("food" + json.dumps(food))
+    if food["x"] > head["x"]:
+        return move_response("right")
+    if food["y"] < head["y"]:
+        return move_response("up")
+    if head["x"] > food["x"]:
+        return move_response("left")
+    if head["y"] < food["y"]:
+        return move_response("down")
 
 @bottle.post('/end')
 def end():
