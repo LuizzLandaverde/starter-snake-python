@@ -64,17 +64,17 @@ def move():
     print("head" + json.dumps(head))
     print("food" + json.dumps(food))
     if food["x"] > head["x"]:
-        return direction = "up"
         return move_response("right")
+        return direction = "up"
     if food["y"] < head["y"]:
-        return direction = "right"
         return move_response("up")
+        return direction = "right"
     if head["x"] > food["x"]:
-        return direction = "down"
         return move_response("left")
+        return direction = "down"
     if head["y"] < food["y"]:
-        return direction = "left"
         return move_response("down")
+        return direction = "left"
 
 @bottle.post('/end')
 def end():
